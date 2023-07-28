@@ -1,0 +1,23 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+resources:
+  pipelines:
+  - pipeline: securitylib # Name of the pipeline resource.
+    source: sample1 # The name of the pipeline referenced by this pipeline resource.
+    project: pipelinea # Required only if the source pipeline is in another project
+    trigger: true # Run app-ci pipeline when any run of security-lib-ci completes
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
